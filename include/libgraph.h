@@ -39,4 +39,30 @@
 #define SCE_GS_DECAL			(1)
 #define SCE_GS_HILIGHT			(2)
 
+#define SCE_GS_ZNOUSE			(0)
+#define SCE_GS_ZALWAYS			(1)
+#define SCE_GS_ZGEQUAL			(2)
+#define SCE_GS_ZGREATER			(3)
+
+#define	SCE_GS_AFAIL_KEEP		(0)
+#define	SCE_GS_AFAIL_FB_ONLY		(1)
+#define SCE_GS_AFAIL_ZB_ONLY		(2)
+#define SCE_GS_AFAIL_RGB_ONLY		(3)
+
+#define SCE_GS_ALPHA_NEVER		(0)
+#define SCE_GS_ALPHA_ALWAYS		(1)
+#define SCE_GS_ALPHA_LESS		(2)
+#define SCE_GS_ALPHA_LEQUAL		(3)
+#define SCE_GS_ALPHA_EQUAL		(4)
+#define SCE_GS_ALPHA_GEQUAL		(5)
+#define SCE_GS_ALPHA_GREATER		(6)
+#define SCE_GS_ALPHA_NOTEQUAL		(7)
+
+#define SCE_GS_ALPHA_CS			(0)
+#define SCE_GS_ALPHA_CD			(1)
+#define SCE_GS_ALPHA_ZERO		(2)
+#define SCE_GS_ALPHA_AS			(0)
+#define SCE_GS_ALPHA_AD			(1)
+#define SCE_GS_ALPHA_FIX		(2)
+
 #endif
