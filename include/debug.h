@@ -22,7 +22,7 @@ do { \
 #define ASSERT_ON_LINE(cond, line) \
 do { \
     if (!(cond)) { \
-        printf(ASSTR(__FILE__) ":" #line "> assert:(%s)\n", #cond); \
+        printf(__FILE__ ":" #line "> assert:(%s)\n", #cond); \
         do {} while (1); \
     } \
 } while (0);
