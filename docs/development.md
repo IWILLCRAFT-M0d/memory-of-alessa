@@ -123,7 +123,7 @@ file located in `silent-hill-3/config/SLUS_206.22/asm`
 #### sh3 compiler flags
 
 ```sh
--O3,p -sym=off,noelf -str readonly -sdatathreshold 0
+-O3,p -sym=off,noelf -sdatathreshold 0
 ```
 
 #### sh2 compiler flags
