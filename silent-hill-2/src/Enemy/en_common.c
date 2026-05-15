@@ -1,6 +1,12 @@
-#include "en_common.h"
+#include "Enemy/en_common.h"
+#include "shared/Fog/fog.h"
+#include "Fog/fog.h"
+#include "SH2_common/playing_info.h"
 
-INCLUDE_ASM("asm/nonmatchings/Enemy/en_common", enInitEnemy);
+void enInitEnemy(void) {
+    shQzero(&enLocalWork, sizeof(EnLOCAL_WORK));
+    enLocalWork.Max3DSounds = 2;
+}
 
 INCLUDE_ASM("asm/nonmatchings/Enemy/en_common", enExecTask);
 
@@ -21,7 +27,12 @@ EnLOCAL_DATA* enEntryEnemy(int kind) {
 
 INCLUDE_ASM("asm/nonmatchings/Enemy/en_common", enInitData);
 
-INCLUDE_ASM("asm/nonmatchings/Enemy/en_common", enDeleteEnemy);
+void enDeleteEnemy(struct EnLOCAL_DATA* dp /* r2 */) {
+    if (dp != NULL) {
+        dp->kind = 0;
+        fogEraseObj((dp - enLocalWork.Data) + 0xA);
+    }
+}
 
 INCLUDE_ASM("asm/nonmatchings/Enemy/en_common", enDummyCtrl);
 
@@ -33,7 +44,9 @@ INCLUDE_ASM("asm/nonmatchings/Enemy/en_common", enGetPlace);
 
 INCLUDE_ASM("asm/nonmatchings/Enemy/en_common", enGetStage);
 
-INCLUDE_ASM("asm/nonmatchings/Enemy/en_common", enGetMode);
+int enGetMode(void) {
+    return playing.battle_level;
+}
 
 INCLUDE_ASM("asm/nonmatchings/Enemy/en_common", enCheckDarkOrBright);
 
