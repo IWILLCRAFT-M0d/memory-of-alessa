@@ -41,6 +41,7 @@ static void shGetJamesFootPos(float* pos, float* vec, int kind);
 
 
 extern /* static */ int anime_change_check_upper; // @ 0x002A8DD0
+extern /* static */ int anime_change_check_lower; // @ 0x002A8DD8
 extern /* static */ AnimeInfo pjames_anim[34]; // size: 0x198, address: 0x0
 extern /* static */ AnimeInfo pjames_hg_anim[11]; // size: 0x84, address: 0x0
 extern /* static */ AnimeInfo pjames_sg_anim[17]; // size: 0xCC, address: 0x0
@@ -1225,7 +1226,1171 @@ void PlayerCheckAnimeUpper(void) {
     sh2jms.hold_loop[0] = 0;
 }
 
-INCLUDE_ASM("asm/nonmatchings/Chacter/m3_play", PlayerCheckAnimeLower);
+void PlayerCheckAnimeLower(void) {
+    SubCharacterDisp* scp_d = sh2jms.player; // r16
+    AnimeInfo* aip;                          // r17
+
+    if ((l_anime_flg_on(2) == 0) && ((sh2jms.lower_now != anime_change_check_lower) || (l_anime_flg_on(0x40) != 0))) {
+        switch (sh2jms.lower_now) {
+            case JMS_ST_L_STAND: {
+                aip = &pjames_anim[1];
+                james_anim_set(aip, 2, 4);
+                player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                break;
+            }
+            case JMS_ST_L_LTURN: {
+                aip = &pjames_anim[10];
+                james_anim_set(aip, 2, 2);
+                break;
+            }
+            case JMS_ST_L_RTURN: {
+                aip = &pjames_anim[9];
+                james_anim_set(aip, 2, 2);
+                break;
+            }
+            case JMS_ST_L_LROUND: {
+                aip = &pjames_anim[3];
+                james_anim_set(aip, 2, 4);
+                player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                break;
+            }
+            case JMS_ST_L_RROUND: {
+                aip = &pjames_anim[2];
+                james_anim_set(aip, 2, 4);
+                player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                break;
+            }
+            case JMS_ST_L_WALK: {
+                int comp_type;
+                if ((sh2jms.lower_prev >= 9) && (sh2jms.lower_prev < 0x11)) {
+                    comp_type = 10;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 4);
+                } else {
+                    comp_type = 4;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                }
+                aip = &pjames_anim[4];
+                james_anim_set(aip, 2, comp_type);
+                break;
+            }
+            case JMS_ST_L_LSWALK: {
+                int comp_type;
+                if ((sh2jms.lower_prev >= 9) && (sh2jms.lower_prev < 0x11)) {
+                    comp_type = 10;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 4);
+                } else {
+                    comp_type = 4;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                }
+                aip = &pjames_anim[0x19];
+                james_anim_set(aip, 2, comp_type);
+                break;
+            }
+            case JMS_ST_L_RSWALK: {
+                int comp_type;
+                if ((sh2jms.lower_prev >= 9) && (sh2jms.lower_prev < 0x11)) {
+                    comp_type = 10;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 4);
+                } else {
+                    comp_type = 4;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                }
+                aip = &pjames_anim[0x18];
+                james_anim_set(aip, 2, comp_type);
+                break;
+            }
+            case JMS_ST_L_BACK: {
+                aip = &pjames_anim[5];
+                james_anim_set(aip, 2, 4);
+                player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                break;
+            }
+            case JMS_ST_L_JUMP: {
+                aip = &pjames_anim[0x15];
+                james_anim_set(aip, 2, 4);
+                player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                break;
+            }
+            case JMS_ST_L_RUN1: {
+                int comp_type;
+                if ((sh2jms.lower_prev >= 9) && (sh2jms.lower_prev < 0x11)) {
+                    comp_type = 10;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 4);
+                } else {
+                    comp_type = 4;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                }
+                aip = &pjames_anim[6];
+                james_anim_set(aip, 2, comp_type);
+                break;
+            }
+            case JMS_ST_L_RUN2: {
+                int comp_type;
+                if ((sh2jms.lower_prev >= 9) && (sh2jms.lower_prev < 0x11)) {
+                    comp_type = 10;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 4);
+                } else {
+                    comp_type = 4;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                }
+                aip = &pjames_anim[7];
+                james_anim_set(aip, 2, comp_type);
+                break;
+            }
+            case JMS_ST_L_RUN3: {
+                int comp_type;
+                if ((sh2jms.lower_prev >= 9) && (sh2jms.lower_prev < 0x11)) {
+                    comp_type = 10;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 4);
+                } else {
+                    comp_type = 4;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                }
+                aip = &pjames_anim[8];
+                james_anim_set(aip, 2, comp_type);
+                break;
+            }
+            case JMS_ST_L_LSRUN: {
+                int comp_type;
+                if ((sh2jms.lower_prev >= 9) && (sh2jms.lower_prev < 0x11)) {
+                    comp_type = 10;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 4);
+                } else {
+                    comp_type = 4;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                }
+                aip = &pjames_anim[0x1B];
+                james_anim_set(aip, 2, comp_type);
+                break;
+            }
+            case JMS_ST_L_RSRUN: {
+                int comp_type;
+                if ((sh2jms.lower_prev >= 9) && (sh2jms.lower_prev < 0x11)) {
+                    comp_type = 10;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 4);
+                } else {
+                    comp_type = 4;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                }
+                aip = &pjames_anim[0x1A];
+                james_anim_set(aip, 2, comp_type);
+                break;
+            }
+            case JMS_ST_L_GUARD: {
+                aip = &pjames_anim[0x17];
+                james_anim_set(aip, 2, 2);
+                break;
+            }
+            case JMS_ST_L_READY: {
+                aip = &pjames_anim[0x13];
+                james_anim_set(aip, 2, 4);
+                player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                break;
+            }
+            case JMS_ST_L_READYOFF: {
+                aip = &pjames_anim[0x14];
+                james_anim_set(aip, 2, 4);
+                player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                break;
+            }
+            case JMS_ST_L_ALERT: {
+                if (sh2jms.weapon == 7) {
+                    aip = &pjames_cs_anim[0x17];
+                } else {
+                    aip = &pjames_anim[0x12];
+                }
+                james_anim_set(aip, 2, 4);
+                player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                break;
+            }
+            case JMS_ST_L_RELAX: {
+                int anime = (shRandI() % 3) + 0x73;
+                aip = &pjames_anim[anime - 0x64];
+                james_anim_set(aip, 2, 4);
+                player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                break;
+            }
+            case JMS_ST_L_HOLD: {
+                int anime;
+                int comp_type;
+                int anime_on = 1;
+                if (sh2jms.lower_prev == 0x1C) {
+                    switch (sh2jms.weapon) {
+                        case 1: {
+                            if ((sh2jms.lock_on == 0) && (sh2jms.reload == 0)) {
+                                comp_type = 4;
+                                aip = &pjames_hg_anim[6];
+                            } else {
+                                anime_on = 0;
+                            }
+                            break;
+                        }
+                        case 2: {
+                            if ((sh2jms.hold_chg[1] != 0) && (sh2jms.shotgun_dir != sh2jms.shotgun_prev)) {
+                                switch (sh2jms.shotgun_prev) {
+                                    case 0: {
+                                        if (sh2jms.shotgun_dir == 2) {
+                                            anime = 0x10A;
+                                        } else {
+                                            anime = 0x108;
+                                        }
+                                        break;
+                                    }
+                                    case 1: {
+                                        if (sh2jms.shotgun_dir == 2) {
+                                            anime = 0x105;
+                                        } else {
+                                            anime = 0x107;
+                                        }
+                                        break;
+                                    }
+                                    case 2: {
+                                        if (sh2jms.shotgun_dir == 1) {
+                                            anime = 0x106;
+                                        } else {
+                                            anime = 0x109;
+                                        }
+                                        break;
+                                    }
+                                }
+                                comp_type = 4;
+                                sh2jms.hold_type = 1;
+                                aip = &pjames_sg_anim[anime - 0xFA];
+                            } else {
+                                anime_on = 0;
+                            }
+                            break;
+                        }
+                        case 3: {
+                            anime_on = 0;
+                            break;
+                        }
+                        case 4: {
+                            comp_type = 4;
+                            if (sh2jms.hold_loop[1]) {
+                                anime = 0x1F9;
+                            } else {
+                                anime = 0x1FB;
+                            }
+                            aip = &pjames_sp_anim[anime - 0x1F4];
+                            break;
+                        }
+                        case 5: {
+                            if (sh2jms.hold_chg[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x169;
+                                } else {
+                                    anime = 0x16A;
+                                }
+                                comp_type = 4;
+                            } else if (sh2jms.hold_loop[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x168;
+                                } else {
+                                    anime = 0x167;
+                                }
+                                comp_type = 4;
+                            } else if (sh2jms.atk_type == 3) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x16F;
+                                } else {
+                                    anime = 0x175;
+                                }
+                                comp_type = 4;
+                            } else {
+                                anime = 0;
+                                anime_on = 0;
+                            }
+                            aip = &pjames_ka_anim[anime - 0x15E];
+                            break;
+                        }
+                        case 6: {
+                            if (sh2jms.hold_chg[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x197;
+                                } else {
+                                    anime = 0x198;
+                                }
+                                comp_type = 4;
+                            } else if (sh2jms.hold_loop[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x196;
+                                } else {
+                                    anime = 0x195;
+                                }
+                                comp_type = 4;
+                            } else if (sh2jms.atk_type == 3) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x19D;
+                                } else {
+                                    anime = 0x1A3;
+                                }
+                                comp_type = 4;
+                            } else {
+                                anime = 0;
+                                anime_on = 0;
+                            }
+                            aip = &pjames_pi_anim[anime - 0x190];
+                            break;
+                        }
+                        case 8: {
+                            if (sh2jms.hold_chg[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x1C8;
+                                } else {
+                                    anime = 0x1C7;
+                                }
+                                comp_type = 4;
+                            } else if (sh2jms.hold_loop[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x1CA;
+                                } else {
+                                    anime = 0x1C9;
+                                }
+                                comp_type = 4;
+                            } else {
+                                anime = 0;
+                                anime_on = 0;
+                            }
+                            aip = &pjames_na_anim[anime - 0x1C2];
+                            break;
+                        }
+                        case 7: {
+                            if (sh2jms.hold_chg[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x233;
+                                } else {
+                                    anime = 0x234;
+                                }
+                                comp_type = 4;
+                            } else if (sh2jms.hold_loop[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x230;
+                                } else {
+                                    anime = 0x22F;
+                                }
+                                comp_type = 2;
+                            } else {
+                                anime = 0;
+                                anime_on = 0;
+                            }
+                            aip = &pjames_cs_anim[anime - 0x226];
+                            break;
+                        }
+                    }
+                    if (anime_on != 0) {
+                        james_anim_set(aip, 2, comp_type);
+                        player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                    }
+                    break;
+                } else {
+                    if (sh2jms.lower_prev == 0x1B) {
+                        comp_type = 6;
+                    } else {
+                        comp_type = 4;
+                    }
+                    switch ((u_char)sh2jms.weapon) {
+                        case 1:
+                            if (l_anime_flg_on(0x40) != 0) {
+                                anime = 0xCE;
+                            } else if ((sh2jms.lock_on != 0) || (sh2jms.hold_type == 1)) {
+                                anime = 0xCB;
+                            } else {
+                                anime = 0xC9;
+                            }
+                            aip = &pjames_hg_anim[anime - 0xC8];
+                            break;
+
+                        case 2:
+                            if ((sh2jms.hold_chg[1] != 0) && (sh2jms.shotgun_dir != sh2jms.shotgun_prev)) {
+                                switch (sh2jms.shotgun_prev) {
+                                    case 0: {
+                                        if (sh2jms.shotgun_dir == 2) {
+                                            anime = 0x10a;
+                                        } else {
+                                            anime = 0x108;
+                                        }
+                                        break;
+                                    }
+                                    case 1: {
+                                        if (sh2jms.shotgun_dir == 2) {
+                                            anime = 0x105;
+                                        } else {
+                                            anime = 0x107;
+                                        }
+                                        break;
+                                    }
+                                    case 2: {
+                                        if (sh2jms.shotgun_dir == 1) {
+                                            anime = 0x106;
+                                        } else {
+                                            anime = 0x109;
+                                        }
+                                        break;
+                                    }
+                                }
+                            } else {
+                                switch (sh2jms.shotgun_dir) {
+                                    case 0: {
+                                        anime = 0x101;
+                                        break;
+                                    }
+                                    case 1: {
+                                        anime = 0xFB;
+                                        break;
+                                    }
+                                    case 2: {
+                                        anime = 0xFE;
+                                        break;
+                                    }
+                                }
+                            }
+                            aip = &pjames_sg_anim[anime - 0xFA];
+                            break;
+
+                        case 3: {
+                            aip = &pjames_rg_anim[1];
+                            break;
+                        }
+                        case 4: {
+                            if (sh2jms.hold_loop[1]) {
+                                anime = 0x1F9;
+                            } else {
+                                anime = 0x1F5;
+                            }
+                            aip = &pjames_sp_anim[anime - 0x1F4];
+                            break;
+                        }
+                        case 5: {
+                            if (sh2jms.hold_chg[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x169;
+                                } else {
+                                    anime = 0x16A;
+                                }
+                            } else if (sh2jms.hold_loop[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x168;
+                                } else {
+                                    anime = 0x167;
+                                }
+                                comp_type = 4;
+                            } else {
+                                anime = shCharacterAnimeGetInfo_(sh2jms.player, 1)->name;
+                                if ((anime == 0x161) || (anime == 0x168)) {
+                                    anime = 0x161;
+                                } else {
+                                    if ((anime == 0x15F) || (anime == 0x167)) {
+                                        anime = 0x15F;
+                                    } else if ((sh2jms.r_side.kind == 1) && (sh2jms.l_side.kind != 1)) {
+                                        anime = 0x15F;
+                                    } else {
+                                        anime = 0x161;
+                                    }
+                                }
+                            }
+                            aip = &pjames_ka_anim[anime - 0x15E];
+                            break;
+                        }
+                        case 6: {
+                            if (sh2jms.hold_chg[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x197;
+                                } else {
+                                    anime = 0x198;
+                                }
+                            } else if (sh2jms.hold_loop[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x196;
+                                } else {
+                                    anime = 0x195;
+                                }
+                                comp_type = 2;
+                            } else {
+                                anime = shCharacterAnimeGetInfo_(sh2jms.player, 1)->name;
+                                if ((anime == 0x193) || (anime == 0x196)) {
+                                    anime = 0x193;
+                                } else {
+                                    if ((anime == 0x191) || (anime == 0x195)) {
+                                        anime = 0x191;
+                                    } else if ((sh2jms.r_side.kind == 1) && (sh2jms.l_side.kind != 1)) {
+                                        anime = 0x191;
+                                    } else {
+                                        anime = 0x193;
+                                    }
+                                }
+                            }
+                            aip = &pjames_pi_anim[anime - 0x190];
+                            break;
+                        }
+                        case 8: {
+                            if (sh2jms.hold_chg[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x1C8;
+                                } else {
+                                    anime = 0x1C7;
+                                }
+                            } else if (sh2jms.hold_loop[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x1CA;
+                                } else {
+                                    anime = 0x1C9;
+                                }
+                                comp_type = 4;
+                            } else {
+                                anime = shCharacterAnimeGetInfo_(sh2jms.player, 1)->name;
+                                if ((anime == 0x1C5) || (anime == 0x1CA)) {
+                                    anime = 0x1C5;
+                                } else {
+                                    if ((anime == 0x1C3) || (anime == 0x1C9)) {
+                                        anime = 0x1C3;
+                                    } else if ((sh2jms.r_side.kind == 1) && (sh2jms.l_side.kind != 1)) {
+                                        anime = 0x1C3;
+                                    } else {
+                                        anime = 0x1C5;
+                                    }
+                                }
+                            }
+                            aip = &pjames_na_anim[anime - 0x1C2];
+                            break;
+                        }
+                        case 7: {
+                            if (sh2jms.hold_chg[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x233;
+                                } else {
+                                    anime = 0x234;
+                                }
+                            } else if (sh2jms.hold_loop[1] != 0) {
+                                if (sh2jms.hold_type == 0) {
+                                    anime = 0x230;
+                                } else {
+                                    anime = 0x22F;
+                                }
+                                comp_type = 2;
+                            } else {
+                                int name = shCharacterAnimeGetInfo_(sh2jms.player, 1)->name;
+                                anime = 0x22b;
+                                switch (name) {
+                                    case 0x22b:
+                                        if (sh2jms.hold_type == -1) {
+                                            anime = 0x22B;
+                                        } else {
+                                            anime = 0x22D;
+                                        }
+                                        break;
+
+                                    case 0x230: {
+                                        anime = 0x22D;
+                                        break;
+                                    }
+                                    case 0x227: {
+                                        if (sh2jms.hold_type == -1) {
+                                            anime = 0x227;
+                                        } else {
+                                            anime = 0x229;
+                                        }
+                                        break;
+                                    }
+
+                                    case 0x22F:
+                                        anime = 0x229;
+                                        break;
+
+                                    default:
+
+                                        if ((sh2jms.r_side.kind == 1) && (sh2jms.l_side.kind != 1)) {
+                                            if (sh2jms.hold_type == -1) {
+                                                anime = 0x227;
+                                            } else {
+                                                anime = 0x229;
+                                            }
+                                            break;
+                                        } else if (sh2jms.hold_type == -1) {
+                                            anime = 0x22B;
+
+                                        } else {
+                                            anime = 0x22d;
+                                        }
+
+                                        break;
+                                }
+                            }
+                            aip = &pjames_cs_anim[anime - 0x226];
+                            break;
+                        }
+
+                        break;
+                    }
+
+                    james_anim_set(aip, 2, comp_type);
+                    player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                    break;
+                }
+            }
+            case JMS_ST_L_RELEASE: {
+                int anime;
+                int comp_type;
+                switch (sh2jms.weapon) {
+                    case 1: {
+                        if ((sh2jms.lock_on != 0) || ((sh2jms.lower_prev == 0x1C) && (sh2jms.reload == 0))) {
+                            anime = 0xCC;
+                        } else {
+                            anime = 0xCA;
+                        }
+                        aip = &pjames_hg_anim[anime - 0xC8];
+                        break;
+                    }
+                    case 2: {
+                        switch (sh2jms.shotgun_dir) {
+                            case 0: {
+                                anime = 0x102;
+                                break;
+                            }
+                            case 1: {
+                                anime = 0xFC;
+                                break;
+                            }
+                            case 2: {
+                                anime = 0xFF;
+                                break;
+                            }
+                        }
+                        aip = &pjames_sg_anim[anime - 0xFA];
+                        break;
+                    }
+                    case 3: {
+                        anime = 0x12E;
+                        aip = &pjames_rg_anim[2];
+                        break;
+                    }
+                    case 4: {
+                        anime = 0x1F6;
+                        aip = &pjames_sp_anim[2];
+                        break;
+                    }
+                    case 5: {
+                        if (sh2jms.hold_type == 0) {
+                            anime = 0x162;
+                        } else {
+                            anime = 0x160;
+                        }
+                        aip = &pjames_ka_anim[anime - 0x15E];
+                        break;
+                    }
+                    case 6: {
+                        if (sh2jms.hold_type == 0) {
+                            anime = 0x194;
+                        } else {
+                            anime = 0x192;
+                        }
+                        aip = &pjames_pi_anim[anime - 0x190];
+                        break;
+                    }
+                    case 8: {
+                        if (sh2jms.hold_type == 0) {
+                            anime = 0x1C6;
+                        } else {
+                            anime = 0x1C4;
+                        }
+                        aip = &pjames_na_anim[anime - 0x1C2];
+                        break;
+                    }
+                    case 7: {
+                        if (sh2jms.hold_type == 0) {
+                            anime = 0x22E;
+                        } else {
+                            anime = 0x22A;
+                        }
+                        aip = &pjames_cs_anim[anime - 0x226];
+                        break;
+                    }
+                }
+                if (sh2jms.weapon != 7) {
+                    if (anime < scp_d->anime.anim_a->name) {
+                        comp_type = 4;
+                    } else {
+                        comp_type = 6;
+                    }
+                } else {
+                    comp_type = 4;
+                }
+                james_anim_set(aip, 2, comp_type);
+                player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                break;
+            }
+            case JMS_ST_L_ATTACK: {
+                int anime;
+                int comp_type = 2;
+                switch (sh2jms.weapon) {
+                    case 1: {
+                        if ((sh2jms.shoot_val == 0) && (sh2jms.reload_val != 0)) {
+                            if (sh2jms.hold_type != 0) {
+                                anime = 0xD2;
+                            } else {
+                                anime = 0xD1;
+                            }
+                        } else if ((sh2jms.hold_type == 1) || (l_anime_flg_on(0x40) != 0)) {
+                            anime = 0xCF;
+                        } else {
+                            anime = 0xD0;
+                        }
+                        aip = &pjames_hg_anim[anime - 0xC8];
+                        break;
+                    }
+                    case 2: {
+                        if ((sh2jms.shoot_val == 0) && (sh2jms.reload_val != 0)) {
+                            anime = 0x104;
+                        } else {
+                            switch (sh2jms.shotgun_dir) {
+                                case 0: {
+                                    anime = 0x103;
+                                    break;
+                                }
+                                case 1: {
+                                    anime = 0xFD;
+                                    break;
+                                }
+                                case 2: {
+                                    anime = 0x100;
+                                    break;
+                                }
+                            }
+                        }
+                        aip = &pjames_sg_anim[anime - 0xFA];
+                        break;
+                    }
+                    case 3: {
+                        if ((sh2jms.shoot_val == 0) && (sh2jms.reload_val != 0)) {
+                            anime = 0x130;
+                        } else {
+                            anime = 0x12F;
+                        }
+                        aip = &pjames_rg_anim[anime - 0x12C];
+                        break;
+                    }
+                    case 4: {
+                        if ((sh2jms.shoot_val == 0) && (sh2jms.reload_val != 0)) {
+                            if (sh2jms.lower_prev == 0x1C) {
+                                anime = 0x1FF;
+                            } else {
+                                anime = 0x1FE;
+                            }
+                        } else if (sh2jms.atk_count != 0) {
+                            anime = 0x1FD;
+                        } else {
+                            anime = 0x1FC;
+                        }
+                        aip = &pjames_sp_anim[anime - 0x1F4];
+                        break;
+                    }
+                    case 5: {
+                        if (sh2jms.hold_type != 0) {
+                            switch (sh2jms.atk_type) {
+                                case 3: {
+                                    if (sh2jms.atk_count != 0) {
+                                        anime = 0x16D;
+                                    } else {
+                                        anime = 0x16B;
+                                    }
+                                    break;
+                                }
+                                case 4: {
+                                    anime = 0x177;
+                                    break;
+                                }
+                            }
+                        } else {
+                            switch (sh2jms.atk_type) {
+                                case 3: {
+                                    if (sh2jms.atk_count != 0) {
+                                        anime = 0x173;
+                                    } else {
+                                        anime = 0x171;
+                                    }
+                                    break;
+                                }
+                                case 4: {
+                                    anime = 0x17B;
+                                    break;
+                                }
+                            }
+                        }
+                        if (sh2jms.player->battle.atk_result != 0) {
+                            comp_type = 6;
+                            switch (sh2jms.atk_type) {
+                                case 3: {
+                                    if ((scp_d->anime.anim_a->name != 0x171) && (scp_d->anime.anim_a->name != 0x16B)) {
+                                        int unknown = 0;
+                                    } else {
+                                        scp_d->anime.total_count -= 0x4000;
+                                    }
+                                    if (sh2jms.hold_type != 0) {
+                                        anime = 0x16E;
+                                    } else {
+                                        anime = 0x174;
+                                    }
+                                    break;
+                                }
+                                case 4: {
+                                    anime++;
+                                    break;
+                                }
+                            }
+                        }
+                        aip = &pjames_ka_anim[anime - 0x15E];
+                        break;
+                    }
+                    case 6: {
+                        if (sh2jms.hold_type != 0) {
+                            switch (sh2jms.atk_type) {
+                                case 3: {
+                                    if (sh2jms.atk_count != 0) {
+                                        anime = 0x19B;
+                                    } else {
+                                        anime = 0x199;
+                                    }
+                                    break;
+                                }
+                                case 4: {
+                                    anime = 0x1A5;
+                                    break;
+                                }
+                                case 5: {
+                                    anime = 0x1AD;
+                                    break;
+                                }
+                            }
+                        } else {
+                            switch (sh2jms.atk_type) {
+                                case 3: {
+                                    if (sh2jms.atk_count != 0) {
+                                        anime = 0x1A1;
+                                    } else {
+                                        anime = 0x19F;
+                                    }
+                                    break;
+                                }
+                                case 4: {
+                                    anime = 0x1A9;
+                                    break;
+                                }
+                                case 5: {
+                                    anime = 0x1AF;
+                                    break;
+                                }
+                            }
+                        }
+                        if (sh2jms.player->battle.atk_result != 0) {
+                            comp_type = 6;
+                            switch (sh2jms.atk_type) {
+                                case 3: {
+                                    if ((scp_d->anime.anim_a->name != 0x19F) && (scp_d->anime.anim_a->name != 0x199)) {
+                                        int unknown = 0;
+                                    } else {
+                                        scp_d->anime.total_count -= 0x6000;
+                                    }
+                                    if (sh2jms.hold_type != 0) {
+                                        anime = 0x19C;
+                                    } else {
+                                        anime = 0x1A2;
+                                    }
+                                    break;
+                                }
+                                case 4: {
+                                }
+                                case 5: {
+                                    anime++;
+                                    break;
+                                }
+                            }
+                        }
+                        aip = &pjames_pi_anim[anime - 0x190];
+                        break;
+                    }
+                    case 8: {
+                        if (sh2jms.hold_type != 0) {
+                            switch (sh2jms.atk_type) {
+                                case 3: {
+                                    anime = 0x1CB;
+                                    break;
+                                }
+                                case 4: {
+                                    anime = 0x1CF;
+                                    break;
+                                }
+                            }
+                        } else {
+                            switch (sh2jms.atk_type) {
+                                case 3: {
+                                    anime = 0x1CD;
+                                    break;
+                                }
+                                case 4: {
+                                    anime = 0x1D1;
+                                    break;
+                                }
+                            }
+                        }
+                        if (sh2jms.player->battle.atk_result != 0) {
+                            comp_type = 6;
+                            anime++;
+                        }
+                        aip = &pjames_na_anim[anime - 0x1C2];
+                        break;
+                    }
+                    case 7: {
+                        if (sh2jms.hold_type != 0) {
+                            switch (sh2jms.atk_type) {
+                                case 3: {
+                                    anime = 0x235;
+                                    break;
+                                }
+                                case 5: {
+                                    anime = 0x239;
+                                    break;
+                                }
+                            }
+                        } else {
+                            switch (sh2jms.atk_type) {
+                                case 3: {
+                                    anime = 0x237;
+                                    break;
+                                }
+                                case 5: {
+                                    anime = 0x23B;
+                                    break;
+                                }
+                            }
+                        }
+                        if (sh2jms.player->battle.atk_result != 0) {
+                            comp_type = 6;
+                            anime++;
+                        }
+                        aip = &pjames_cs_anim[anime - 0x226];
+                        break;
+                    }
+                }
+                james_anim_set(aip, 2, comp_type);
+                break;
+            }
+            case JMS_ST_L_TIRED: {
+                int anime;
+                int comp_type;
+                if (anime_change_check_lower == sh2jms.lower_now) {
+                    comp_type = 10;
+                    anime = 0x71;
+                    player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                } else {
+                    comp_type = 4;
+                    if (sh2jms.tired >= (((sh2jms.tired_max * 2) / 3))) {
+                        anime = 0x72;
+                    } else {
+                        anime = 0x71;
+                    }
+                    player_flg_on(&sh2jms.l_anime_st_flg, 4);
+                }
+                aip = &pjames_anim[anime - 0x64];
+                james_anim_set(aip, 2, comp_type);
+                break;
+            }
+            case JMS_ST_L_KICK: {
+                int anime;
+                if (sh2jms.atk_type == 7) {
+                    anime = 0x85;
+                } else {
+                    anime = 0x84;
+                }
+                player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                aip = &pjames_anim[anime - 0x64];
+                james_anim_set(aip, 2, 4);
+                break;
+            }
+            case JMS_ST_L_WALL_F: {
+                int anime;
+                switch (sh2jms.lower_prev) {
+                    case 12:
+                    case 13:
+                    case 14: {
+                        anime = 0x80;
+                        break;
+                    }
+                    case 16: {
+                        anime = 0x81;
+                        break;
+                    }
+                    case 15: {
+                        anime = 0x82;
+                        break;
+                    default:
+                        ASSERT_ON_LINE(0, 5241);
+                    }
+                }
+                player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                aip = &pjames_anim[anime - 0x64];
+                james_anim_set(aip, 2, 4);
+                break;
+            }
+            case JMS_ST_L_FALL: {
+                aip = &pjames_anim[sh2jms.fall_type + 0xB];
+                james_anim_set(aip, 2, 4);
+                player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                break;
+            }
+            case JMS_ST_L_DAMAGE: {
+                int anime;
+                switch (sh2jms.hug_status) {
+                    case 0:
+                    case 1:
+                        anime = sh2jms.damage_no;
+                        break;
+                    case 2:
+                        switch (sh2jms.player->battle.id) {
+                            case 0x2F:
+                            case 0x30:
+                                anime = 0x4E3E;
+                                break;
+                            case 0x36:
+                            case 0x37:
+                                anime = 0x4E47;
+                                break;
+                            case 0x39:
+                            case 0x3A:
+                                if (sh2jms.hug_dir != 0) {
+                                    anime = 0x4E4F;
+                                } else {
+                                    anime = 0x4E4B;
+                                }
+                                break;
+                            case 0x3B:
+                            case 0x3C:
+                                anime = 0x4E56;
+                                break;
+                            case 0x3E:
+                            case 0x3F:
+                                anime = ((short)((!(shRandI() & 1) ? 0x4E55 : 0x4E54)));
+                                break;
+                        }
+                        break;
+                    case 3:
+                    case 4:
+                        switch (sh2jms.player->battle.id) {
+                            case 0x30:
+                            case 0x2F:
+                                anime = (short)((sh2jms.dead != 0) ? 0x4E3F : 0x4E40);
+                                break;
+                            case 0x37:
+                            case 0x36:
+                                anime = (short)(sh2jms.dead != 0 ? 0x4E48 : 0x4E49);
+                                break;
+                            case 0x3A:
+                            case 0x39:
+                                if (sh2jms.dead != 0) {
+                                    if (sh2jms.hug_dir != 0) {
+                                        anime = 0x4E51;
+                                    } else {
+                                        anime = 0x4E4D;
+                                    }
+                                } else if (sh2jms.hug_dir != 0) {
+                                    anime = 0x4E50;
+                                } else {
+                                    anime = 0x4E4C;
+                                }
+                                break;
+                            case 0x3C:
+                            case 0x3B:
+                                anime = (short)(sh2jms.dead ? 0x4E57 : 0x4E59);
+                                ;
+                                break;
+                            case 0x3E:
+                            case 0x3F:
+                                anime = (short)(sh2jms.dead ? 0x4E27 : 0x4E53);
+                                break;
+                        }
+                        break;
+                }
+                aip = PlayerGetStageAnime(anime);
+                ASSERT_ON_LINE(aip, 5341);
+                james_anim_set(aip, 2, 2);
+                break;
+            }
+            case JMS_ST_L_EVENT: {
+                int anime;
+                int comp_type;
+                if (sh2jms.event_move_mode != 0) {
+                    switch (sh2jms.event_status_now) {
+                        case 0: {
+                            anime = 0x65;
+                            comp_type = 4;
+                            break;
+                        }
+                        case 1: {
+                            anime = 0x68;
+                            if (sh2jms.event_status_prev == 2) {
+                                comp_type = 10;
+                            } else {
+                                comp_type = 4;
+                            }
+                            comp_type = (s_char)comp_type;
+                            break;
+                        }
+                        case 2: {
+                            anime = 0x6B;
+                            if (sh2jms.event_status_prev == 1) {
+                                comp_type = 10;
+                            } else {
+                                comp_type = 4;
+                            }
+                            comp_type = (s_char)comp_type;
+                            break;
+                        }
+                    }
+                    if (comp_type == 4) {
+                        player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                    } else {
+                        player_flg_on(&sh2jms.l_anime_st_flg, 4);
+                    }
+                    aip = &pjames_anim[anime - 0x64];
+                    sh2jms.event_anime = anime;
+                } else {
+                    anime = (u_long)sh2jms.event_anime & 0x7FFFFFFF;
+
+                    if (sh2jms.event_anime & 0x80000000) {
+                        comp_type = 2;
+                    } else {
+                        comp_type = 4;
+                        player_flg_on(&sh2jms.l_anime_st_flg, 2);
+                    }
+                    if (anime == 0x65) {
+                        aip = &pjames_anim[anime - 0x64];
+                    } else {
+                        aip = PlayerGetStageAnime(anime);
+                        ASSERT_ON_LINE(aip, 5390);
+                    }
+                }
+                james_anim_set(aip, 2, comp_type);
+                break;
+            }
+        }
+        anime_change_check_lower = sh2jms.lower_now;
+        player_flg_off(&sh2jms.l_anime_st_flg, 0x40);
+    }
+    if (scp_d->anime.comp_type < 3 || 6 < scp_d->anime.comp_type) {
+        player_flg_off(&sh2jms.l_anime_st_flg, 2);
+    }
+    if (scp_d->anime.comp_type < 9) {
+        player_flg_off(&sh2jms.l_anime_st_flg, 4);
+    }
+    if (scp_d->anime.comp_type == -1) {
+        if (!(sh2jms.anime_pause & 4)) {
+            sh2jms.anime_pause |= 1;
+        }
+    } else {
+        sh2jms.anime_pause &= 10;
+    }
+    sh2jms.hold_chg[1] = 0;
+    sh2jms.hold_loop[1] = 0;
+}
 
 INCLUDE_ASM("asm/nonmatchings/Chacter/m3_play", PlayerCheckAnime);
 
