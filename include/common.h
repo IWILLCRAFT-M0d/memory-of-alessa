@@ -50,6 +50,7 @@ typedef signed char s_char;
 #define UNSET_FLAG(x, i) ((x)[(i) >> 5] &= ~(1 << ((i) & 0x1F)))
 
 #define ABORT() asm("breakc 0")
+#define BLOCK_WHILE(_cond) do { /* wait */ } while (_cond)
 
 #ifdef DEBUG
 #define debugPrintf(...) printf(__VA_ARGS__)
