@@ -288,9 +288,9 @@ extern u_int D_003B57D0;
 extern int xitop;
 extern AllData_Vu0 * pAllData_Vu0;
 
-extern u_int _vu_0_0x00380640;
-extern u_int _vu_0_0x00380F00;
-extern u_int _vu_0_0x00381200;
+extern u_int model3_mpg0_clip0v;
+extern u_int model3_mpg0_clip1;
+extern u_int model3_mpg0_clipv;
 
 extern u_int D_003B5D00;
 extern u_int D_003B5E40;
