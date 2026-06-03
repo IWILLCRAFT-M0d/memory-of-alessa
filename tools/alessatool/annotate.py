@@ -113,7 +113,7 @@ def annotate_asm(args: AnnotationArgs):
         annotated_asm_lines.append(asm_lines[asm_line_index])
         asm_line_index += 1
 
-    assert len(main_tu_name) > 0, "no valid compilation unit found"
+    assert main_tu_name, "no valid compilation unit found"
     annotated_asm_lines = [
         ".section .debug",
         ".previous",
