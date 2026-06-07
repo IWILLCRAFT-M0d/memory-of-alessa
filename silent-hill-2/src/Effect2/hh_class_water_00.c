@@ -123,8 +123,6 @@ static u_int Object_Initialize(HH_Object_Water_00* pThis) {
     return 1;
 }
 
-static float dev_0; // @ 0x0036ED80
-static float dev_1; // @ 0x0036ED88
 u_int Object_Motion_00(HH_Object_Water_00* pThis) {
     u_int result = 0;                                                    // r2
     float* pCurr_Grid_Y = pThis->Grid_Y_Value[pThis->CurrentBuffer];     // r2
