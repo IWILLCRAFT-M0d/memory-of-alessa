@@ -96,7 +96,7 @@ void func_01F6D9A0_motel_00(void) {
     if (!(temp_f2 <= 180.0f)) {
         D_01F6E108_motel_00 = temp_f2 - 360.0f;
     }
-    func_001C2A60(1, 0.017453292f * D_01F6E108_motel_00);
+    func_001C2A60(1, TO_RAD(D_01F6E108_motel_00));
     func_0018A260(0x1F);
     func_0018A310(0x1F, 0, 1);
 }

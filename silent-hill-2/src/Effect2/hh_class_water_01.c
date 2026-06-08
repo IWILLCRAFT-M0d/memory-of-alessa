@@ -436,7 +436,7 @@ u_int HH_Class_Water_01(void* pBlock /* r2 */, ImpactQueue_Element* pElement /* 
                     wave_element.Max_Distance0 = _distance_189_0x0036F2D8;
                     wave_element.Lost_Time = _lost_time_190_0x0036F2E0;
                     wave_element.Arrival = _arri_191_0x0036F2E8;
-                    wave_element.Omega = 0.017453292f * _omega_192_0x0036F2F0;
+                    wave_element.Omega = TO_RAD(_omega_192_0x0036F2F0);
                     wave_element.Verocity = _v_193_0x0036F2F8;
                     wave_element.Timer = 0;
                     HH_Class_WaterCommon_WaveElement_Addition(pThis->Wave_Info, 0x14, &wave_element);
@@ -458,7 +458,7 @@ u_int HH_Class_Water_01(void* pBlock /* r2 */, ImpactQueue_Element* pElement /* 
                         wave_element.Max_Distance0 = __distance_201_0x0036F308;
                         wave_element.Lost_Time = __lost_time_202_0x0036F310;
                         wave_element.Arrival = __arri_203_0x0036F318;
-                        wave_element.Omega = 0.017453292f * __omega_204_0x0036F320;
+                        wave_element.Omega = TO_RAD(__omega_204_0x0036F320);
                         wave_element.Verocity = __v_205_0x0036F328;
                         wave_element.Timer = 0.0f;
                         HH_Class_WaterCommon_WaveElement_Addition(pThis->Wave_Info, 0x14, &wave_element);
