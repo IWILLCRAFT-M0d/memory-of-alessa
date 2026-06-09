@@ -6,7 +6,7 @@
 #include "common.h"
 #include "mpeg/libmpeg.h"
 #include "mpeg/defs.h"
-#include "mpeg/cscvu1.h"
+#include "shared/movie/cscvu1.h"
 #include "libipu.h"
 
 #define VOBUF_STATUS_EMPTY 0
