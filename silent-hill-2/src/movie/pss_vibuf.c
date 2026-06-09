@@ -1,9 +1,8 @@
 #include "sh2_common.h"
 #include "movie/pss_vibuf.h"
+#include "movie/movie.h"
 
 #pragma divbyzerocheck off
-#define min(x, y) (((x) > (y)) ? (y) : (x))
-#define max(x, y) (((x) > (y))? (x): (y))
 
 int getFIFOindex(ViBuf *f, void *addr)
 {
