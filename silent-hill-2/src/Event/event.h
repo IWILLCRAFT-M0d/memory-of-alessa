@@ -110,6 +110,7 @@ extern int ev_p_step;        // size: 0x4, address: 0x11263C0
 extern int ev_e_step;        // size: 0x4, address: 0x11263C8
 extern int ev_m_step;        // size: 0x4, address: 0x11263D0
 extern int ev_prog_flag_set; // size: 0x4, address: 0x11263A8
+extern float ev_timer;       // size: 0x4, address: 0x11263A0
 
 extern Game_Flag game_flag;
 extern u_short msg_buffer[];
