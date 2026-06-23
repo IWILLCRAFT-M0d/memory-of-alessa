@@ -3,7 +3,7 @@
 int func_01F6D680_subway_02(void)
 {
     int ret;
-    SubCharacter* heather = shCharacterGetSubCharacter(HEATHER_CHARA_ID, -1);
+    SubCharacter* heather = shCharacterGetSubCharacter(HEATHER_CHARA_KIND, -1);
     Q sp40;
     Q sp50;
     float temp_f0;

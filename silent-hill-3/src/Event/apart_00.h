@@ -11,7 +11,7 @@
 #define APARTMENTS_HEATHERS_BEDROOM 0x99
 #define APARTMENTS_OUTSIDE          0x9A
 
-#define MISSIONARY_CHARA_ID 0x211
+#define MISSIONARY_CHARA_KIND 0x211
 #define MISSIONARY_ID       0xF0
 
 typedef struct Apart00Entry {

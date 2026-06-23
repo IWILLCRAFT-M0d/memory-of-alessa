@@ -364,12 +364,12 @@ void func_01F6E4E0_hospital_b_00(void) {
     cur = &D_01F70528_hospital_b_00;
     var_s0 = 0;
     for (cur = &D_01F70528_hospital_b_00; *cur != 0; cur++) {
-        scp = shCharacterGetSubCharacter(SLURPER_E_CHARA_ID, *cur);
+        scp = shCharacterGetSubCharacter(SLURPER_E_CHARA_KIND, *cur);
         if (scp != NULL) {
             
             if(!func_001E2110(scp)) var_s0++;            
             if ((*cur != 0x140) && (GET_FLAG(D_1D31694, 11)) && (GetActionLevel() < 3) && (1 < var_s0)) {
-            shCharacter_Manage_Delete(SLURPER_E_CHARA_ID, *cur);                
+            shCharacter_Manage_Delete(SLURPER_E_CHARA_KIND, *cur);                
             }
         }
     }
@@ -385,23 +385,23 @@ void func_01F6E5B0_hospital_b_00(void) {
     score = birthday_room_ammo_total + birthday_room_drug_total;
 
     for (cur = &D_01F70540_hospital_b_00; *cur != 0; cur++) {
-        scp = shCharacterGetSubCharacter(NURSE_CHARA_ID, *cur);
+        scp = shCharacterGetSubCharacter(NURSE_CHARA_KIND, *cur);
 
         if (scp != NULL && !func_001E2110(scp)) {
             switch (*cur) {
                 case 317:
                     if (score < 120) {
-                        shCharacter_Manage_Delete(NURSE_CHARA_ID, *cur);
+                        shCharacter_Manage_Delete(NURSE_CHARA_KIND, *cur);
                     }
                     break;
                 case 318:
                     if (score < 190) {
-                        shCharacter_Manage_Delete(NURSE_CHARA_ID, *cur);
+                        shCharacter_Manage_Delete(NURSE_CHARA_KIND, *cur);
                     }
                     break;
                 case 319:
                     if (score < 260) {
-                        shCharacter_Manage_Delete(NURSE_CHARA_ID, *cur);
+                        shCharacter_Manage_Delete(NURSE_CHARA_KIND, *cur);
                     }
                     break;
             }

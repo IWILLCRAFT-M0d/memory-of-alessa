@@ -1,6 +1,7 @@
 #include "common.h"
 #include "Chacter/m3_sc.h"
 #include "Chacter/character.h"
+#include "Chacter/chara_list.h"
 #include "Chacter/sh3_character_manage.h"
 
 extern shCharacterAll sh3chara;
@@ -120,21 +121,21 @@ void func_0012F090(SubCharacter* scp)
     switch (kind)
     {
 
-        case HEATHER_CHARA_ID:
+        case HEATHER_CHARA_KIND:
             shCharacterSetPlayer(scp);
             return;
 
-        case DOUGLAS_CHARA_ID:
-        case DOUGLAS_CC_CHARA_ID:
-        case DOUGLAS_DD_CHARA_ID:
+        case DOUGLAS_CHARA_KIND:
+        case DOUGLAS_CC_CHARA_KIND:
+        case DOUGLAS_DD_CHARA_KIND:
             func_0024CA90(scp);
             return;
 
-        case CLAUDIA_CHARA_ID:
+        case CLAUDIA_CHARA_KIND:
             func_00241560(scp);
             return;
 
-        case VINCENT_CHARA_ID:
+        case VINCENT_CHARA_KIND:
             func_0025D150(scp);
             return;
 
@@ -142,28 +143,28 @@ void func_0012F090(SubCharacter* scp)
             func_00198DF0(scp);
             return;
 
-        case VALTIEL_CHARA_ID:
+        case VALTIEL_CHARA_KIND:
             func_002FE1A0(scp);
             return;
 
-        case DOUBLE_HEAD_CHARA_ID:
-        case CLOSER_CHARA_ID:
-        case NUMB_BODY_CHARA_ID:
-        case NURSE_CHARA_ID:
-        case INSANE_CANCER_CHARA_ID:
-        case PENDULUM_CHARA_ID:
-        case SCRAPER_CHARA_ID:
-        case SEWER_MONSTER_CHARA_ID:
-        case EN_DED1_CHARA_ID:
-        case CAROUSEL_HORSE_CHARA_ID:
-        case SLURPER_E_CHARA_ID:
-        case SLURPER_X_CHARA_ID:
+        case DOUBLE_HEAD_CHARA_KIND:
+        case CLOSER_CHARA_KIND:
+        case NUMB_BODY_CHARA_KIND:
+        case NURSE_CHARA_KIND:
+        case INSANE_CANCER_CHARA_KIND:
+        case PENDULUM_CHARA_KIND:
+        case SCRAPER_CHARA_KIND:
+        case SEWER_MONSTER_CHARA_KIND:
+        case EN_DED1_CHARA_KIND:
+        case CAROUSEL_HORSE_CHARA_KIND:
+        case SLURPER_E_CHARA_KIND:
+        case SLURPER_X_CHARA_KIND:
         case 0x20C: /* unknown */
-        case MISSIONARY_CHARA_ID:
-        case SPLIT_WORM_CHARA_ID:
-        case LEONARD_WOLF_CHARA_ID:
-        case GOD_CHARA_ID:
-        case MEMORY_OF_ALESSA_CHARA_ID:
+        case MISSIONARY_CHARA_KIND:
+        case SPLIT_WORM_CHARA_KIND:
+        case LEONARD_WOLF_CHARA_KIND:
+        case GOD_CHARA_KIND:
+        case MEMORY_OF_ALESSA_CHARA_KIND:
             func_0022EB70(scp);
             return;
 

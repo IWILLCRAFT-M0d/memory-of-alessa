@@ -113,12 +113,12 @@ int func_01F6DDA0_apart_00(void) {
             break;
     }
     temp_s0 = func_0016C540(&D_01F6FCC0_apart_00, &D_01F6FD20_apart_00);
-    missy = shCharacterGetSubCharacter(MISSIONARY_CHARA_ID, MISSIONARY_ID);
+    missy = shCharacterGetSubCharacter(MISSIONARY_CHARA_KIND, MISSIONARY_ID);
     if (temp_s0 == 0) {
-        func_001E22F0(MISSIONARY_CHARA_ID, MISSIONARY_ID, 0);
+        func_001E22F0(MISSIONARY_CHARA_KIND, MISSIONARY_ID, 0);
         func_001DC9E0(missy, 0);
     } else {
-        func_001E22F0(MISSIONARY_CHARA_ID, MISSIONARY_ID, 1);
+        func_001E22F0(MISSIONARY_CHARA_KIND, MISSIONARY_ID, 1);
         func_001DC9E0(missy, 1);
         func_001C2290(5, 0.5f);
         if (func_001646C0() != 0) {

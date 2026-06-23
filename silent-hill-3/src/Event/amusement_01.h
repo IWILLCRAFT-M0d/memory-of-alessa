@@ -4,7 +4,7 @@
 #include "common.h"
 #include "Chacter/m3_sc.h"
 
-#define DANNY_CHARA_ID 0x1043
+#define DANNY_CHARA_KIND 0x1043
 #define DANNY_ID 0x171
 
 #define BORLEY_HAUNTED_MANSION_DINING_ROOM  0xDB

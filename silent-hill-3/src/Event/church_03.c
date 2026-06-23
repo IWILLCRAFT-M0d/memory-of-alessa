@@ -13,7 +13,7 @@ int func_01F6D680_church_03(void) {
         D_01F6DF80_church_03++;
     }
     
-    god = shCharacterGetSubCharacter(GOD_CHARA_ID, 0x1CD);
+    god = shCharacterGetSubCharacter(GOD_CHARA_KIND, 0x1CD);
     temp_v0 = func_0016C540(&D_01F6DDB0_church_03, &D_01F6DE10_church_03);
     if (temp_v0 != 0) {
         D_1D316AC &= 0xDFFFFFFF;

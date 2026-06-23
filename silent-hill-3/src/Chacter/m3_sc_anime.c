@@ -1,5 +1,6 @@
 #include "common.h"
 #include "Chacter/m3_sc.h"
+#include "Chacter/chara_list.h"
 
 /* start of split may be slightly off */
 
@@ -72,7 +73,7 @@ void shCharacterExecAnimeOne(SubCharacter* scp) {
     u_char weapon;
 
     switch (scp_d->sc.kind) {
-        case HEATHER_CHARA_ID:
+        case HEATHER_CHARA_KIND:
             func_001326B0();
             sh_HEATHER_SetUntouchUpper(scp_d->anime.top);
             shCharacterExecAnimeMain(&scp_d->anime, 2);
@@ -91,7 +92,7 @@ void shCharacterExecAnimeOne(SubCharacter* scp) {
     }
 
     switch (scp_d->sc.kind) {
-        case HEATHER_CHARA_ID:
+        case HEATHER_CHARA_KIND:
             weapon = PlayerGetHeatherWeapon();
             if (!(scp_wp = shCharacterGetSubCharacter(WEAPON_ID_START + weapon, -1))) break;
             shUpdateWeaponMatrixAfterAnime(scp_wp, scp_d->sc.kind);
@@ -99,7 +100,7 @@ void shCharacterExecAnimeOne(SubCharacter* scp) {
     }
 
     switch (scp_d->sc.kind) {
-        case HEATHER_CHARA_ID:
+        case HEATHER_CHARA_KIND:
             func_00191660(scp_d->sc.kind);
     }
 }

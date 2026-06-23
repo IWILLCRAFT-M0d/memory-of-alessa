@@ -139,7 +139,7 @@ int func_01F6D720_subway_01(void)
             break;
     }
 
-    heather = shCharacterGetSubCharacter(HEATHER_CHARA_ID, -1);
+    heather = shCharacterGetSubCharacter(HEATHER_CHARA_KIND, -1);
 
     if (var_s0 != 0)
     {
@@ -223,7 +223,7 @@ int func_01F6DBE0_subway_01(void)
 
             if (var_s0 != 0)
             {
-                heather = shCharacterGetSubCharacter(HEATHER_CHARA_ID, -1);
+                heather = shCharacterGetSubCharacter(HEATHER_CHARA_KIND, -1);
 
                 heather->pos.x = -12500.0f;
                 heather->pos.y = 0.0f;
@@ -312,11 +312,11 @@ void func_01F6DF90_subway_01(void)
 
     for (id = &D_01F70640_subway_01; *id != 0; id++)
     {
-        if (shCharacterGetSubCharacter(DOUBLE_HEAD_CHARA_ID, *id) == NULL)
+        if (shCharacterGetSubCharacter(DOUBLE_HEAD_CHARA_KIND, *id) == NULL)
         {
             for (var_s1 = &D_01F6F7D0_subway_01; var_s1 != NULL && var_s1->unk0 != 0; var_s1++)
             {
-                if (var_s1->unk0 == DOUBLE_HEAD_CHARA_ID && var_s1->unk2 == *id)
+                if (var_s1->unk0 == DOUBLE_HEAD_CHARA_KIND && var_s1->unk2 == *id)
                 {
                     break;
                 }
@@ -356,11 +356,11 @@ void func_01F6E100_subway_01(void)
 
     for (id = &D_01F70650_subway_01; *id != 0; id++)
     {
-        if (shCharacterGetSubCharacter(DOUBLE_HEAD_CHARA_ID, *id) == NULL)
+        if (shCharacterGetSubCharacter(DOUBLE_HEAD_CHARA_KIND, *id) == NULL)
         {
             for (var_s1 = &D_01F6F7D0_subway_01; var_s1 != NULL && var_s1->unk0 != 0; var_s1++)
             {
-                if (var_s1->unk0 == DOUBLE_HEAD_CHARA_ID && var_s1->unk2 == *id)
+                if (var_s1->unk0 == DOUBLE_HEAD_CHARA_KIND && var_s1->unk2 == *id)
                 {
                     break;
                 }
@@ -393,19 +393,19 @@ void func_01F6E270_subway_01(void)
 
     while (*id != 0)
     {
-        shCharacter_Manage_Delete(DOUBLE_HEAD_CHARA_ID, *id);
+        shCharacter_Manage_Delete(DOUBLE_HEAD_CHARA_KIND, *id);
         ++id;
     }
 }
 
 void func_01F6E2D0_subway_01(void)
 {
-    SubCharacter* double_head = shCharacterGetSubCharacter(DOUBLE_HEAD_CHARA_ID, -1);
+    SubCharacter* double_head = shCharacterGetSubCharacter(DOUBLE_HEAD_CHARA_KIND, -1);
 
     while (double_head != NULL)
     {
-        shCharacter_Manage_Delete(DOUBLE_HEAD_CHARA_ID, double_head->id);
-        double_head = shCharacterGetSubCharacter(DOUBLE_HEAD_CHARA_ID, -1);
+        shCharacter_Manage_Delete(DOUBLE_HEAD_CHARA_KIND, double_head->id);
+        double_head = shCharacterGetSubCharacter(DOUBLE_HEAD_CHARA_KIND, -1);
     }
 }
 

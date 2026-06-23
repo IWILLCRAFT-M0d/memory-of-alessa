@@ -4,7 +4,7 @@
 #include "common.h"
 #include "Chacter/m3_sc.h"
 
-#define MEMORY_OF_ALESSA_CHARA_ID 0x215
+#define MEMORY_OF_ALESSA_CHARA_KIND 0x215
 
 typedef struct {
     float unk0;

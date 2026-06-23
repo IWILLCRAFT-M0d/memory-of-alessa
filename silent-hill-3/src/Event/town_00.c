@@ -69,7 +69,7 @@ void func_01F6D8A0_town_00() {
 
     int* cur;
     for (cur = &D_01F6DF90_town_00; *cur != 0; cur++) {
-        scp = shCharacterGetSubCharacter(DOUBLE_HEAD_CHARA_ID, (short) *cur);
+        scp = shCharacterGetSubCharacter(DOUBLE_HEAD_CHARA_KIND, (short) *cur);
         if (!scp) {
             continue;
         }
@@ -91,7 +91,7 @@ void func_01F6D8A0_town_00() {
                 break;
             case 2:
                 if (!GET_BIT(D_1D31684, 3)) {
-                    shCharacter_Manage_Delete(DOUBLE_HEAD_CHARA_ID, (u_short) *cur);
+                    shCharacter_Manage_Delete(DOUBLE_HEAD_CHARA_KIND, (u_short) *cur);
                 }
                 break;
             default:
@@ -103,7 +103,7 @@ void func_01F6D8A0_town_00() {
                 } else if (3 >= count) {
                     continue;
                 }
-                shCharacter_Manage_Delete(DOUBLE_HEAD_CHARA_ID, (u_short) *cur);
+                shCharacter_Manage_Delete(DOUBLE_HEAD_CHARA_KIND, (u_short) *cur);
         }
     }
     

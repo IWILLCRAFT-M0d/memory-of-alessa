@@ -162,14 +162,14 @@ int func_01F6DAB0_sewer_00(void) {
     case 3:
       if (func_0016C540(D_01F6FC00_sewer_00, D_01F6FC60_sewer_00) == 0) {
         D_01F6FE28_sewer_00 = 1;
-        heather = shCharacterGetSubCharacter(HEATHER_CHARA_ID, -1);
+        heather = shCharacterGetSubCharacter(HEATHER_CHARA_KIND, -1);
         func_001DC9E0(heather, 0);
         if (func_001643C0() >= 10.0f) {
           func_0013D250(0, D_01F6FA30_sewer_00, 1.0f);
         }
         return 0;
       }
-      heather = shCharacterGetSubCharacter(HEATHER_CHARA_ID, -1);
+      heather = shCharacterGetSubCharacter(HEATHER_CHARA_KIND, -1);
       func_001DC9E0(heather, 1);
       func_0016D0E0(0x3202, D_01F6FE58_sewer_00);
       D_01F6FE58_sewer_00 = -1;

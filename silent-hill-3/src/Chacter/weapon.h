@@ -33,21 +33,4 @@
 #define EQUIPPED_WEAPON_BEAM_SABER     0xD
 #define EQUIPPED_WEAPON_FLAMETHROWER   0xE
 
-#define WP_HGUN_CHARA_ID   0x801
-#define WP_SHO_CHARA_ID    0x802
-#define WP_SUB_CHARA_ID    0x803
-#define WP_KNIFE_CHARA_ID  0x804
-#define WP_PIPE_CHARA_ID   0x805
-#define WP_SWO_CHARA_ID    0x806
-#define WP_HUM_CHARA_ID    0x807
-#define WP_STU_CHARA_ID    0x808
-#define WP_LIG_CHARA_ID    0x809
-#define WP_FIR_CHARA_ID    0x80a
-#define WP_PIPEG_CHARA_ID  0x80d
-#define WP_PIPES_CHARA_ID  0x80e
-#define WP_HGUNS_CHARA_ID  0x80f
-#define WP_SUBS_CHARA_ID   0x810
-#define WP_U_SUB_CHARA_ID  0x811
-#define WP_U_SUBS_CHARA_ID 0x812
-
 #endif // SH3_WEAPON_H

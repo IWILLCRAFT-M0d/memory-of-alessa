@@ -2,6 +2,7 @@
 #include "Font/font.h"
 #include "SH3_common/sh3dt.h"
 #include "SH3_common/sh_vu0.h"
+#include "Chacter/chara_list.h"
 
 static void func_01F6DCF0_amusement_01(u_long128 *arg0, int *arg1, u_long128 *arg2, int *arg3, int *arg4);
 static void func_01F6F430_amusement_01(u_long128 *arg0, int *arg1, u_long128 *arg2, int *arg3, int *arg4);
@@ -258,7 +259,7 @@ int func_01F6DF10_amusement_01(void) {
     ret = 0;
 
     // create Danny
-    danny = shCharacterGetSubCharacter(DANNY_CHARA_ID, DANNY_ID);
+    danny = shCharacterGetSubCharacter(DANNY_CHARA_KIND, DANNY_ID);
 
     switch (D_01F74C88_amusement_01) {
         case 0:
@@ -425,7 +426,7 @@ void func_01F6E2A0_amusement_01(void) {
             return;
 
         case 3:
-            heather = shCharacterGetSubCharacter(HEATHER_CHARA_ID, -1);
+            heather = shCharacterGetSubCharacter(HEATHER_CHARA_KIND, -1);
             heather_x = heather->pos.x;
             vec1[0] = heather_x;
             vec0[0] = heather_x;
@@ -610,7 +611,7 @@ int func_01F6E9A0_amusement_01(void) {
             /* fallthrough */
 
         case 2: {
-            heather = shCharacterGetSubCharacter(HEATHER_CHARA_ID, -1);
+            heather = shCharacterGetSubCharacter(HEATHER_CHARA_KIND, -1);
     
             for (i = 0; i < 3; i++) {
                 D_01F74880_amusement_01[i] = 
@@ -744,7 +745,7 @@ static void func_01F6F430_amusement_01(u_long128* arg0, int* arg1, u_long128* ar
 int func_01F6F4E0_amusement_01(void) {
     SubCharacter* scp;
     int ret = func_0016C540(&D_01F748F0_amusement_01, &D_01F74950_amusement_01);
-    scp = shCharacterGetSubCharacter(DOUGLAS_CC_CHARA_ID, 0x178);
+    scp = shCharacterGetSubCharacter(DOUGLAS_CC_CHARA_KIND, 0x178);
     if (ret != 0) {
         if (func_0019A9B0(2.0f) != 0) {
             scp->pos.x = -59676.0f;
@@ -772,7 +773,7 @@ int func_01F6F5C0_amusement_01(void) {
         D_01F74C88_amusement_01 += 1;
         /* fallthrough */
     case 1:
-        scp = shCharacterGetSubCharacter(DOUGLAS_CC_CHARA_ID, 0x178);
+        scp = shCharacterGetSubCharacter(DOUGLAS_CC_CHARA_KIND, 0x178);
         break;
     }
     if (ret != 0) {
@@ -817,7 +818,7 @@ int func_01F6F7A0_amusement_01(void) {
     float temp_f1;
     int temp_s1;
 
-    heather = shCharacterGetSubCharacter(HEATHER_CHARA_ID, -1);
+    heather = shCharacterGetSubCharacter(HEATHER_CHARA_KIND, -1);
     switch (D_01F74C88_amusement_01) {
         case 0:
             func_00190A20(2);
@@ -1223,16 +1224,16 @@ void func_01F70780_amusement_01(void) {
 
     count = 0;
     for (cur = D_01F74B10_amusement_01; *cur != 0; cur++) {
-        scp = shCharacterGetSubCharacter(PENDULUM_CHARA_ID, *cur);
+        scp = shCharacterGetSubCharacter(PENDULUM_CHARA_KIND, *cur);
         if (scp != 0) {
             if (func_001E2110(scp) == 0) {
                 count++;
             }
             if ((*cur != 0x182) && (*cur != 0x183)) {
                 if (!(GET_BIT(D_1D3169C, 0xF))) {
-                    shCharacter_Manage_Delete(PENDULUM_CHARA_ID, *cur);
+                    shCharacter_Manage_Delete(PENDULUM_CHARA_KIND, *cur);
                 } else if ((1 < (GetActionLevel())) && (2 < count)) {
-                    shCharacter_Manage_Delete(PENDULUM_CHARA_ID, *cur);
+                    shCharacter_Manage_Delete(PENDULUM_CHARA_KIND, *cur);
                 }
             }
         }
@@ -1307,7 +1308,7 @@ void func_01F709D0_amusement_01(void) {
         break;
     case 0xE3:
         if (GET_BIT(D_1D31648, 0x1A)) {
-            douglas = shCharacterGetSubCharacter(DOUGLAS_CC_CHARA_ID, 0x178);
+            douglas = shCharacterGetSubCharacter(DOUGLAS_CC_CHARA_KIND, 0x178);
             douglas->pos.x = -59676.0f;
             douglas->pos.y = -8.4108f;
             douglas->pos.z = 58407.0f;

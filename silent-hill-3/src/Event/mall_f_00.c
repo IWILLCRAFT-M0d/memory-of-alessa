@@ -191,7 +191,7 @@ int func_01F6D8D0_mall_f_00(void)
             break;
     }
 
-    closer = shCharacterGetSubCharacter(CLOSER_CHARA_ID, 0x11);
+    closer = shCharacterGetSubCharacter(CLOSER_CHARA_KIND, 0x11);
     var_s2 = shCharacterGetSubCharacter(0x1004, 0x12);
 
     if (ret == 0)
@@ -395,7 +395,7 @@ void func_01F6E380_mall_f_00(void)
             {
                 sp50 = D_01F6FBC0_mall_f_00;
 
-                closer = shCharacterGetSubCharacter(CLOSER_CHARA_ID, 0x11);
+                closer = shCharacterGetSubCharacter(CLOSER_CHARA_KIND, 0x11);
                 var_s1 = shCharacterGetSubCharacter(0x1004, 0x12);
 
                 func_001DC9E0(closer, 1);
