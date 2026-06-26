@@ -11,8 +11,8 @@ extern float dtf_0x003C8450;
 extern int dt_0x003C8458;
 
 void PlayerChangeAngleToCameraY(SubCharacter* this) {
-    f32 diff;
-    f32 step;
+    float diff;
+    float step;
 
     diff = shAngleRegulate(this->rot.y - this->spd_roty);
     step = (diff / 3.0915927410125734) * (20.0f * dtf_0x003C8450);
@@ -294,7 +294,7 @@ void PlayerUpdateStatusLower2D(SubCharacter* this) {
         lower_st_set(JMS_ST_L_WALL_F, w);
         lower_flg_set(JMS_ST_L_WALL_F, w);
     }
-    if ((sh2jms.lstick_p) && ((s32) p2d->lower_motion < 2)) {
+    if ((sh2jms.lstick_p) && (p2d->lower_motion < 2)) {
         PlayerCheckStraightLine(this, this->spd_roty);
         if ((p->dash) && (sh2jms.cannot_run == 0)) {
             if ((lower_flg_on(1 << JMS_ST_L_RUN3)) && !sh2jms.map_mode && ((w->hold_type == -1) || ((w->upper_now != 0x1C) && (actwithwep_flg_on(8))) || ((w->upper_now == 0x1C) && (actwithwep_flg_on(0x80))))) {
