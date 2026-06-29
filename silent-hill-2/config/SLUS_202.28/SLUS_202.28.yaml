@@ -62,7 +62,7 @@ segments:
       - [0x028730, asm, Chacter_Draw/model3_equip_n]
       - [0x0287e0, asm, Chacter_Draw/model3_n]
       - [0x029000, asm, Chacter_Draw/model3_sub_n]
-      - [0x0295f0, asm, Chacter_Draw/model3_vu0_n]
+      - [0x0295f0, c,   Chacter_Draw/model3_vu0_n]
       - [0x02c4e0, asm, Chacter_Draw/model3_vu1_n]
       - [0x02e4c0, c,   Chacter_Draw/model_common]
       - [0x02e540, asm, Chacter_Draw/model_n]
@@ -557,6 +557,8 @@ segments:
       - { vram: 0x0419380, type: bss,  name: bss_0x0419380 }
       - { vram: 0x0419d60, type: .bss, name: Chacter_Draw/model3_cluster_n }
       - { vram: 0x0419dc0, type: bss,  name: bss_0x00419dc0 }
+      - { vram: 0x0419fa0, type: .bss, name: Chacter_Draw/model3_vu0_n }
+      - { vram: 0x0419fa8, type: bss,  name: bss_0x0419fa8 }
       - { vram: 0x041bf10, type: .bss, name: Chacter_Draw/model_common }
       - { vram: 0x0438588, type: bss,  name: bss_0x0438588 }
       - { vram: 0x116e3d0, type: .bss, name: Item/otn_itemmain }

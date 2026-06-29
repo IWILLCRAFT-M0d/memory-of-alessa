@@ -185,12 +185,13 @@ static void InitAllPacket0(AllPacket* p) {
 INCLUDE_ASM("asm/nonmatchings/Chacter_Draw/model3_vu0_n", InitAllPacket0);
 #endif
 
-static void LoadProgram_Vu0() {
+static void LoadProgram_Vu0(void) {
+    static int initialized;
     if (initialized == 0) {
         sceVif0Packet packet;
         sceVif0Packet* pk = &packet;
         sceVif0PkInit(pk, (u_long128*) READ_UNCACHED(&packet_buffer));
-        sceVif0PkCall(pk, model3_mpg0_skel_load, 0U);
+        sceVif0PkCall(pk, model3_mpg0_skel_load, 0);
         sceVif0PkEnd(pk, 0U);
         sceVif0PkTerminate(pk);
         initialized = 1;
@@ -376,17 +377,17 @@ void MakeClipPacket(Part* part, sceVif0Packet* pk) {
     }
 }
 
-static void FlipXMTOP() {
+static void FlipXMTOP(void) {
     xmtop ^= 0x80;
 }
 
 INCLUDE_ASM("asm/nonmatchings/Chacter_Draw/model3_vu0_n", MakeCalcPartPacket);
 
-void KickCalcPartPacket() {
+void KickCalcPartPacket(void) {
     ktVif0Send(ktVif0PkBufCurrent(), 1);
 }
 
-void TransferToSPR() {
+void TransferToSPR(void) {
     sceDmaChan* toSPR = sceDmaGetChan(9);
     ktVif0Wait2();
     toSPR->sadr = (void*) calc_base;
@@ -394,7 +395,7 @@ void TransferToSPR() {
     calc_base ^= 0x1000;
 }
 
-void PrepareSort() {
+void PrepareSort(void) {
     InitAllPacket0(all_packet);
 }
 
