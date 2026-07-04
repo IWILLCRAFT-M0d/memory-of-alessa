@@ -176,7 +176,7 @@ typedef struct SubCharacter {
     /* 0x40 */  Vector4 pos_spd;
     /* 0x50 */  Vector4 rot_spd;
     /* 0x60 */  int unk60[8];
-    /* 0x80 */  int unk80;
+    /* 0x80 */  shSkelton* sk80;
     /* 0x84 */  int unk84[7];
     /* 0xA0 */  void (*function)(struct SubCharacter*);
     /* 0xA4 */  struct shSkelton* sk_top;

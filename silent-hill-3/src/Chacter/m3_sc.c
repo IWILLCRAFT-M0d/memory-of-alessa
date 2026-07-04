@@ -373,7 +373,7 @@ static void shCharacterDelete(SubCharacter* scp) {
     if (scp_d->model_adr == 0) {
         sh3CharacterAddSkeletons(shCharacterGetSkeltonNum(scp->kind));
     } else {
-        shCharacterFreeSkeltons(scp->unk80);
+        shCharacterFreeSkeltons(scp->sk80);
     }
 
     scp_d->anime.top = NULL;
@@ -390,7 +390,7 @@ static void shCharacterDelete(SubCharacter* scp) {
     scp->id = 0;
     scp->unk12 = -1;
     scp->unk10 = 0;
-    scp->unk80 = 0;
+    scp->sk80 = NULL;
     scp->pre = NULL;
     scp->next = NULL;
     scp->function = NULL;
