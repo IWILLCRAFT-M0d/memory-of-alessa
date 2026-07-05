@@ -140,9 +140,9 @@ void shLensFlareGetScreenInfo(void) {
 }
 
 void* kari_shLensFlareDraw(void) {
-    int center_visible_f; // r16
-    int count = *T0_COUNT; // r2
-    float add_rate; // r29+0x40
+    int center_visible_f;
+    int count = *T0_COUNT;
+    float add_rate;
     float add_rate_scaled; // @ note not in dwarf
 
     kari_Thr_LFD2TextureSend();
